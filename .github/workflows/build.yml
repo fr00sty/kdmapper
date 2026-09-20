@@ -1,4 +1,4 @@
-name: Build KDMapper
+name: Generate KDMapper
 on: push
 
 jobs:
@@ -14,8 +14,8 @@ jobs:
     - name: Compile Release x64
       run: msbuild kdmapper.sln /p:Configuration=Release /p:Platform=x64
 
-    - name: Upload Artifact
+    - name: Upload Finished File
       uses: actions/upload-artifact@v4
       with:
-        name: kdmapper-executable
-        path: "**/kdmapper.exe"
+        name: raw-kdmapper
+        path: "**/Release/kdmapper.exe"
